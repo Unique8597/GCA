@@ -5,6 +5,7 @@ from PIL import Image
 from huggingface_hub import hf_hub_download
 from preprocess import preprocess_image  # ensure this returns a (1, 224, 224, 3) tensor
 
+token = st.secrets["HF_TOKEN"]
 
 @st.cache_resource
 def load_model_from_hub():
@@ -12,7 +13,7 @@ def load_model_from_hub():
     model_path = hf_hub_download(
     repo_id="Unique8597/my-keras-model",
     filename="resnet_garbage_classifier.keras",
-    token="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"
+    token=token
 )
     model = tf.keras.models.load_model(model_path)
     return model
