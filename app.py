@@ -12,7 +12,7 @@ def load_model_from_hub():
     model_path = hf_hub_download(
     repo_id="Unique8597/my-keras-model",
     filename="resnet_garbage_classifier.keras",
-    token="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"
+    #token="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"
 )
     model = tf.keras.models.load_model(model_path)
     return model
